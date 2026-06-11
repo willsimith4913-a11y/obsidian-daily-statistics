@@ -1,4 +1,9 @@
 # Obsidian Daily Statistics
+## 与原作者大神主要的区别
+1，所有统计方式为汉字，具体统计逻辑，参考了WPS的统计方式；
+2，实际始终过程中发现，需要在码字群中打卡今日完成情况，但不希望截图太多，所以在每个日期上增加了一个单击Tips，用来详细展示今日的日期、完成字数；
+<img width="412" height="392" alt="image" src="https://github.com/user-attachments/assets/9b3f29df-c265-427f-a8ac-62ea5e070124" />
+
 
 ## 介绍
 统计每日书写的字数，并展示在日历中。
