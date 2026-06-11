@@ -7,6 +7,9 @@ export class DailyStatisticsSettings {
 
   // 统计单词，用于英文场景
   statisticsWord = false;
+
+  // 统计汉字专用
+  ChineseWord = false;
   // 开启计划
   enablePlan = true;
   // 一周开始时间

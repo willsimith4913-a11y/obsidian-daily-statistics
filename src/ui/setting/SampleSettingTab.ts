@@ -58,7 +58,7 @@ export class SampleSettingTab extends PluginSettingTab {
           })
       );
 
-      new Setting(containerEl)
+    new Setting(containerEl)
       .setName(t("statisticsWord"))
       .setDesc(t("statisticsWordExplained"))
       .addToggle((component) =>
@@ -66,6 +66,19 @@ export class SampleSettingTab extends PluginSettingTab {
           .setValue(this.plugin.settings.statisticsWord)
           .onChange(async (value) => {
             this.plugin.settings.statisticsWord = value;
+            await this.plugin.saveSettings();
+            // 将当日的统计数据重置
+            DailyStatisticsDataManagerInstance.resetCurrentDayStatistics()
+          })
+      );
+    new Setting(containerEl)
+      .setName(t("ChineseWord"))
+      .setDesc(t("ChineseWordExplained,汉字的统计优先级高于statisticsWord的英文"))
+      .addToggle((component) =>
+        component
+          .setValue(this.plugin.settings.ChineseWord)
+          .onChange(async (value) => {
+            this.plugin.settings.ChineseWord = value;
             await this.plugin.saveSettings();
             // 将当日的统计数据重置
             DailyStatisticsDataManagerInstance.resetCurrentDayStatistics()
@@ -94,7 +107,7 @@ export class SampleSettingTab extends PluginSettingTab {
       .addDropdown((dropdown) =>
         dropdown
           .addOption("0", t("weekStartOptions0"))
-          .addOption("1", t("weekStartOptions1")) 
+          .addOption("1", t("weekStartOptions1"))
           .addOption("2", t("weekStartOptions2"))
           .addOption("3", t("weekStartOptions3"))
           .addOption("4", t("weekStartOptions4"))
@@ -122,5 +135,5 @@ export class SampleSettingTab extends PluginSettingTab {
           })
       );
   }
-  
+
 }
